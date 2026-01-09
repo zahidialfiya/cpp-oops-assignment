@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+// Base class
+class Animal
+{
+public:
+    // Virtual function
+    virtual void sound()
+    {
+        cout << "Animal makes a sound" << endl;
+    }
+};
+
+// Derived class 1
+class Dog : public Animal
+{
+public:
+    void sound()
+    {
+        cout << "Dog barks" << endl;
+    }
+};
+
+// Derived class 2
+class Cat : public Animal
+{
+public:
+    void sound()
+    {
+        cout << "Cat meows" << endl;
+    }
+};
+
+int main()
+{
+    // Base class pointer
+    Animal *a;
+
+    Dog d;
+    Cat c;
+
+    // Same pointer, different behavior
+    a = &d;
+    a->sound();   // Calls Dog's sound()
+
+    a = &c;
+    a->sound();   // Calls Cat's sound()
+
+    return 0;
+}
